@@ -11,24 +11,24 @@ public class KMP implements AM {
         Result result = new Result();
 
         // Base Case 1: Y is null or empty
-        if (Y == null || Y.length() == 0)
+        if (pattern == null || pattern.length() == 0)
         {
             System.out.println("Pattern occurs with shift 0");
             return result;
         }
 
         // Base Case 2: X is null or X's length is less than that of Y's
-        if (X == null || Y.length() > X.length())
+        if (text == null || pattern.length() > text.length())
         {
             System.out.println("Pattern not found");
             return result;
         }
 
-        char[] chars = Y.toCharArray();
+        char[] chars = pattern.toCharArray();
 
         // next[i] stores the index of next best partial match
-        int[] next = new int[Y.length() + 1];
-        for (int i = 1; i < Y.length(); i++)
+        int[] next = new int[pattern.length() + 1];
+        for (int i = 1; i < pattern.length(); i++)
         {
             int j = next[i + 1];
 
@@ -39,11 +39,11 @@ public class KMP implements AM {
                 next[i + 1] = j + 1;
         }
 
-        for (int i = 0, j = 0; i < X.length(); i++)
+        for (int i = 0, j = 0; i < text.length(); i++)
         {
-            if (j < Y.length() && X.charAt(i) == Y.charAt(j))
+            if (j < pattern.length() && text.charAt(i) == pattern.charAt(j))
             {
-                if (++j == Y.length())
+                if (++j == pattern.length())
                 {
                     System.out.println("Pattern occurs with shift " +
                             (i - j + 1));
