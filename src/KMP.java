@@ -65,7 +65,7 @@ public class KMP implements AM {
         String text = input.getText();
         String pattern = input.getPattern();
 
-        System.out.println("Input : text = " + text + ", pattern = " + pattern);
+        //System.out.println("Input : text = " + text + ", pattern = " + pattern);
 
         info.parent.write(search(text, pattern));
     }
