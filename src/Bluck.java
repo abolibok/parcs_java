@@ -12,8 +12,8 @@ public class Bluck{
         task curtask = new task();
         curtask.addJarFile("KMP.jar");
 
-        String text = textFromFile( curtask.findFile("input") );
-        String pattern = patternFromFile( curtask.findFile("pattern"));
+        String text = textFromFile( curtask.findFile("input.txt") );
+        String pattern = patternFromFile( curtask.findFile("pattern.txt"));
 
         AMInfo info = new AMInfo(curtask, null);
 
